@@ -15,10 +15,20 @@ export class InventoryComponent implements OnInit {
   }
 
   loadTools() {
-    
+    this.toolService.getAllTools().subscribe(tools => {
+      console.log(tools);
+      this.toolList = tools;
+    })
   }
 
   onDelete() {
-    
+    this.toolService.deleteTool(toolId.toString()).subscribe (
+      () => {
+        this.loadTools();
+      }, error => {
+        console.log('Error: ', error);
+        this.router.navigateByUrl('/tools');
+      }
+    )
   }
 }
