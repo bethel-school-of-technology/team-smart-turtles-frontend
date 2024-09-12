@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from '../../services/inventory.service';
+import { Inventory } from '../../models/inventory';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-inventory',
@@ -8,26 +11,32 @@ import { Router } from '@angular/router';
 })
 export class InventoryComponent implements OnInit {
   
-  constructor (private router: Router) { }
+  inventory: Inventory[] = [];
+
+  constructor (
+    private router: Router, 
+    private inventoryService: InventoryService, 
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
-    this.loadTools();
+    this.loadItems();
   }
 
-  loadTools() {
-    this.toolService.getAllTools().subscribe(tools => {
+  loadItems() {
+    this.inventoryService.getAllItems().subscribe(tools => {
       console.log(tools);
-      this.toolList = tools;
+      this.inventory = tools;
     })
   }
 
-  onDelete() {
-    this.toolService.deleteTool(toolId.toString()).subscribe (
+  onDelete(itemId: number) {
+    this.inventoryService.deleteItem(itemId).subscribe (
       () => {
-        this.loadTools();
+        this.loadItems();
       }, error => {
         console.log('Error: ', error);
-        this.router.navigateByUrl('/tools');
+        this.router.navigateByUrl('/');
       }
     )
   }
