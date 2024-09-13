@@ -1,9 +1,20 @@
 <mat-toolbar>
     <span>Inventura</span>
-    <span class="spacer">
+    <span class="spacer"></span>
 
-        <button></button> 
-    </span>
+    <button [routerLink]="['/login']" mat-icon-button matTooltip="Login">
+        <mat-icon>login</mat-icon>
+    </button>
+    <button [routerLink]="['/inventory']" mat-icon-button matTooltip="Inventory">
+        <mat-icon>inventory</mat-icon>
+    </button>
+    <button [routerLink]="['/signup']" mat-icon-button matTooltip="Sign Up">
+        <mat-icon>how_to_reg</mat-icon>
+    </button>
+    <button [routerLink]="['/profile']" mat-icon-button matTooltip="Go to Profile">
+        <mat-icon>person</mat-icon>
+    </button>
+
 </mat-toolbar>
 <div>
     <router-outlet></router-outlet>

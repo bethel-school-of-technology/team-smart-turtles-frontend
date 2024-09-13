@@ -8,6 +8,14 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { MaterialComponent } from './components/material/material.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltip } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -20,9 +28,17 @@ import { MaterialComponent } from './components/material/material.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatToolbarModule,
+    HttpClientModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTooltip
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
