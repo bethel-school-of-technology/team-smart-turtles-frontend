@@ -1,0 +1,9 @@
+<form (ngSubmit)="createItem()">
+    <h4>Create New Item</h4>
+    <span>Item name: </span>
+    <input placeholder="Add new item" type="text" name="post" [(ngModel)]="newItem.name"><br><br>
+
+    <button>
+        Add to inventory!
+    </button>
+</form>
