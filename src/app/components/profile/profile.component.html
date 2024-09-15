@@ -1,10 +1,12 @@
 <h1>User Profile</h1>
-<!-- <h2>{{ username }}</h2>
+<h2>{{ username }}</h2>
 <h2>{{ email }}</h2>
-<div *ngIf="xList.length > 0; else noPosts">
-  <div *ngFor="let x of xList">
-    <h2> {{ x.text }}</h2>
-    <a [routerLink]="['/x', x.xId]">Edit</a>
+<div *ngIf="toolList.length > 0; else noTools">
+  <div *ngFor="let t of toolList">
+    <h2> {{ t.name }}</h2>
     <hr>
   </div>
-</div> -->
+</div>
+<ng-template #noTools>
+  <p>No tools used.</p>
+</ng-template>
