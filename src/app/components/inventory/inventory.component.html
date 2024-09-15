@@ -1,18 +1,25 @@
 <h4>All Tools</h4>
 
 <div *ngIf="inventory">
-    <div *ngFor="let tools of inventory">
+    <div *ngFor="let item of inventory">
         <mat-card>
             <mat-card-header>
-                <mat-card-title></mat-card-title>
+                <mat-card-title>{{ item.name }}</mat-card-title>
             </mat-card-header>
 
             <mat-card-content>
-
+                <p>
+                    Placeholder for button to take user to profile of item-holder
+                </p>
             </mat-card-content>
-
+            
             <mat-card-actions>
-
+                <button [routerLink]='["/edit"]' mat-icon-button matTooltip="Edit Post">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button matTooltip="Remove Item">
+                    <mat-icon>delete</mat-icon>
+                  </button>
             </mat-card-actions>
         </mat-card>
     </div>
