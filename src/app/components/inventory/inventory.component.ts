@@ -24,9 +24,9 @@ export class InventoryComponent implements OnInit {
   }
 
   loadItems() {
-    this.inventoryService.getAllItems().subscribe(tools => {
-      console.log(tools);
-      this.inventory = tools;
+    this.inventoryService.getAllItems().subscribe(item => {
+      console.log(item);
+      this.inventory = item;
     })
   }
 

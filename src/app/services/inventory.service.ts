@@ -20,5 +20,15 @@ export class InventoryService {
     return this.http.delete(`${this.baseURL}`)
   }
 
-  
+  createItem(newItem: Inventory): Observable<any> {
+    return this.http.post(this.baseURL, newItem);
+  }
+
+  getItem(itemId: number): Observable<Inventory> {
+    return this.http.get<Inventory>(`${this.baseURL}/${itemId}`);
+  }
+
+  editItem(itemId: number, editedItem: Inventory): Observable<any> {
+    return this.http.put(`${this.baseURL}/${editedItem.itemId}`, editedItem);
+  }
 }

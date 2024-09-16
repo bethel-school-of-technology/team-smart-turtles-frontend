@@ -9,6 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { MaterialComponent } from './components/material/material.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,6 +17,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
+import { CreateComponent } from './components/create/create.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,14 @@ import { MatTooltip } from '@angular/material/tooltip';
     LoginComponent,
     ProfileComponent,
     InventoryComponent,
-    MaterialComponent
+    MaterialComponent,
+    CreateComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     MatToolbarModule,
     HttpClientModule,
     MatCardModule,

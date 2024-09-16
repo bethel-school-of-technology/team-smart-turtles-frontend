@@ -1,0 +1,7 @@
+<h4>Edit Item</h4>
+<form #form="ngForm" (ngSubmit)="onSubmit()" class="labels">
+    <label>Item: </label>
+    <input type="text" name="name" [(ngModel)]="currentItem.name"><br><br>
+
+    <button type="submit">Confirm Changes</button>
+</form>
