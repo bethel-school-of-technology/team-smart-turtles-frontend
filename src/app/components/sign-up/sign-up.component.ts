@@ -21,7 +21,7 @@ export class SignUpComponent {
   signUp() {
     this.userService.signUp(this.newUser).subscribe(() => {
       window.alert("User Registered Successfully");
-      this.router.navigate(['login']);
+      this.router.navigate(['/login']);
     }, error => {
       window.alert("User Registration Error");
       console.log('Error: ', error)

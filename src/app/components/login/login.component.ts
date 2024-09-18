@@ -20,7 +20,7 @@ export class LoginComponent {
 
   logIn(){ 
     this.userService.logIn(this.username, this.password).subscribe((response:any) => {
-      this.router.navigateByUrl('/') //Path to profile or material list.
+      this.router.navigateByUrl('/profile') //Path to profile or material list.
     }, error => {
       console.log('Error: ', error);
       window.alert('Unsuccessful Login');
