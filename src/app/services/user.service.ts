@@ -7,7 +7,7 @@ import { tap } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  baseUrl: string = ""  //Url here
+  baseUrl: string = "http://localhost:3000/api"  //Url here
 
   constructor(private http: HttpClient) { }
 
