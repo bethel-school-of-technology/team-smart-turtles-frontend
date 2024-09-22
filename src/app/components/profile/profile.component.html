@@ -1,9 +1,16 @@
 <h1>User Profile</h1>
-<h2>{{ username }}</h2>
-<h2>{{ email }}</h2>
+<div *ngIf="username; else noUser">
+  <h2>{{ username }}</h2>
+  <h2>{{ email }}</h2>
+</div>
+<ng-template #noUser>
+  <p>No User Logged In</p>
+</ng-template>
+
 <div *ngIf="toolList.length > 0; else noTools">
-  <div *ngFor="let t of toolList">
-    <h2> {{ t.name }}</h2>
+  <div *ngFor="let tool of toolList">
+    <h3>{{ tool.name }}</h3>
+    <p><strong>Available: </strong>{{ tool.available ? 'Yes' : 'No' }}</p>
     <hr>
   </div>
 </div>
