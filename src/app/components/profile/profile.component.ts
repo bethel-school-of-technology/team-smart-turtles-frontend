@@ -20,24 +20,16 @@ export class ProfileComponent implements OnInit {
     private route: ActivatedRoute, 
     @Inject(PLATFORM_ID) private platformId: Object) {}
 
-  // ngOnInit(): void {
-  //   if (isPlatformBrowser(this.platformId)) {
-  //     this.username = localStorage.getItem('username') || '';
-  //     this.route.paramMap.subscribe(params => {
-  //       this.username = params.get('username') || this.username;
-  //       this.InventoryService.getAllItems(this.username).subscribe(t => {
-  //         this.toolList = t;
-  //       }, error => {
-  //         console.error('Failed to load user posts:', error);
-  //         if (error.status === 404) {
-  //           console.error('Endpoint not found');
-  //         }
-  //       });
-  //     });
-  //   }
-  // }
-
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.username = localStorage.getItem('username') || '';
+      this.email = localStorage.getItem('email') || '';  // Assuming email is stored similarly
+
+      this.loadInventory();
+    }
+  }
+
+  loadInventory(): void {
     this.InventoryService.getAllItems().subscribe(
       (items: Inventory[]) => {
         this.toolList = items;
