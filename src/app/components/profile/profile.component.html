@@ -1,8 +1,8 @@
 <h1>User Profile</h1>
-<h2>{{ username }}</h2>
-<h2>{{ email }}</h2>
-<div *ngIf="toolList.length > 0; else noTools">
-  <div *ngFor="let t of toolList">
+<h2>{{ currentUser.username }}</h2>
+<h2>{{ currentUser.email }}</h2>
+<div *ngIf="itemList.length > 0; else noTools">
+  <div *ngFor="let t of itemList">
     <h2> {{ t.name }}</h2>
     <hr>
   </div>

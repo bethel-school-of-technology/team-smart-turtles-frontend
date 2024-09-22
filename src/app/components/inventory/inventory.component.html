@@ -17,7 +17,7 @@
                 <button [routerLink]='["/edit"]' mat-icon-button matTooltip="Edit Post">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button mat-icon-button matTooltip="Remove Item">
+                  <button (click)="onDelete(item.itemId!)" mat-icon-button matTooltip="Remove Item">
                     <mat-icon>delete</mat-icon>
                   </button>
             </mat-card-actions>
