@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  username: string = " ";
-  password: string = " ";
+  username: string = "";
+  password: string = "";
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -20,7 +20,8 @@ export class LoginComponent {
 
   logIn(){ 
     this.userService.logIn(this.username, this.password).subscribe((response:any) => {
-      this.router.navigateByUrl('/profile') //Path to profile or material list.
+      window.alert('Successfully logged in!');
+      this.router.navigateByUrl('/profile')
     }, error => {
       console.log('Error: ', error);
       window.alert('Unsuccessful Login');

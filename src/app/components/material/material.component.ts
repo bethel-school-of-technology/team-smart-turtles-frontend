@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-material',
@@ -6,5 +9,38 @@ import { Component } from '@angular/core';
   styleUrl: './material.component.css'
 })
 export class MaterialComponent {
+  
+  currentUserId: number | null = null;
+  isAuthenticated = false;
+  private authSubscription!: Subscription;
 
+  constructor(private userService: UserService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.authSubscription = this.userService.getAuthState().subscribe((isAuthenticated: boolean) => {
+      this.isAuthenticated = isAuthenticated;
+      
+      if (isAuthenticated) {
+        this.userService.getUserProfile().subscribe((currentUser: any) => { // Subscribing to get the user profile
+          if (currentUser) {
+            this.currentUserId = currentUser.userId; // Access userId safely
+          }
+        });
+      } else {
+        this.currentUserId = null; // No user when not authenticated
+      }
+    });
+  }
+
+  logout(): void {
+    this.userService.logout();
+    this.router.navigateByUrl('/login');
+    window.alert('You have successfully logged out');
+  }
+
+  ngOnDestroy(): void {
+    if (this.authSubscription) {
+      this.authSubscription.unsubscribe();
+    }
+  }
 }

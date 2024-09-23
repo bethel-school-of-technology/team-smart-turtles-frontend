@@ -35,7 +35,7 @@ const routes: Routes = [
     component: CreateComponent
   },
   {
-    path: "edit",
+    path: "edit/:itemId",
     component: EditComponent
   }
 ];
