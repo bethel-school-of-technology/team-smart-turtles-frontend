@@ -71,14 +71,13 @@ export class ProfileComponent implements OnInit {
   }
 
   loadUserItems(): void {
-    const userId = this.currentUser.userId;
-    if (userId !== undefined) {
-      this.InventoryService.getCheckedOutItems(userId).subscribe(
+    if (this.currentUser.userId !== undefined) {
+      this.InventoryService.getCheckedOutItems(this.currentUser.userId).subscribe(
         (items: Inventory[]) => {
           this.itemList = items;
         },
-        (error: any) => {
-          console.error('Error loading user items:', error);
+        (error) => {
+          console.error('Error loading user posts:', error);
         }
       );
     } else {

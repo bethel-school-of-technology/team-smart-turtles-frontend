@@ -17,7 +17,7 @@ export class EditComponent implements OnInit {
   constructor(private inventoryService: InventoryService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const routeId = this.route.snapshot.paramMap.get("itemId") ?? "";
+    this.itemId = parseInt(this.route.snapshot.paramMap.get("itemId") ?? '0');
     this.inventoryService.getItem(this.itemId).subscribe(foundItem => {
       console.log(foundItem);
       this.currentItem = foundItem;

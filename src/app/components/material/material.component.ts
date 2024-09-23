@@ -10,24 +10,26 @@ import { Router } from '@angular/router';
 })
 export class MaterialComponent {
   
-  currentUserId: number = 0;
+  currentUserId: number | null = null;
   isAuthenticated = false;
   private authSubscription!: Subscription;
 
   constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInt(): void {
-    // this.authSubscription = this.userService.getAuthState().subscribe(this.isAuthenticated => {
-    //   this.isAuthenticated = this.isAuthenticated;
-    //   if (isAuthenticated) {
-    //     const currentUser = this.userService.getCurrentUser();
-    //     if (currentUser) {
-    //       this.currentUserId = currentUser.userId;
-    //     }
-    //   } else {
-    //     this.currentUserId = null;
-    //   }
-    // });
+  ngOnInit(): void {
+    this.authSubscription = this.userService.getAuthState().subscribe((isAuthenticated: boolean) => {
+      this.isAuthenticated = isAuthenticated;
+      
+      if (isAuthenticated) {
+        this.userService.getUserProfile().subscribe((currentUser: any) => { // Subscribing to get the user profile
+          if (currentUser) {
+            this.currentUserId = currentUser.userId; // Access userId safely
+          }
+        });
+      } else {
+        this.currentUserId = null; // No user when not authenticated
+      }
+    });
   }
 
   logout(): void {
