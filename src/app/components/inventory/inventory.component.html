@@ -9,20 +9,26 @@
 
             <mat-card-content>
                 <p>
-                    Placeholder for button to take user to profile of item-holder
+                    {{ item.catagory }}
                 </p>
             </mat-card-content>
 
             <mat-card-actions>
-                <button [routerLink]='["/edit"]' mat-icon-button matTooltip="Edit Post">
+                <button *ngIf="isAuthenticated" [routerLink]='["/edit/", item.itemId]' mat-icon-button matTooltip="Edit Post">
                     <mat-icon>edit</mat-icon>
                 </button>
+<<<<<<< HEAD
                 <button mat-icon-button matTooltip="Remove Item">
                     <mat-icon>delete</mat-icon>
                 </button>
                 <button [routerLink]='["/checkout"]' mat-icon-button matTooltip="Chekout Item">
                     <mat-icon>checkout</mat-icon>
                 </button>
+=======
+                <button *ngIf="isAuthenticated" (click)="onDelete(item.itemId!)" mat-icon-button matTooltip="Remove Item">
+                    <mat-icon>delete</mat-icon>
+                </button>
+>>>>>>> dev
             </mat-card-actions>
         </mat-card>
     </div>

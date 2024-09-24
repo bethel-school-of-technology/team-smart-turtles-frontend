@@ -2,20 +2,23 @@
     <span>Inventura</span>
     <span class="spacer"></span>
 
-    <button [routerLink]="['/login']" mat-icon-button matTooltip="Login">
+    <button *ngIf="!isAuthenticated" [routerLink]="['/login']" mat-icon-button matTooltip="Login">
         <mat-icon>login</mat-icon>
     </button>
     <button [routerLink]="['/inventory']" mat-icon-button matTooltip="Inventory">
         <mat-icon>inventory</mat-icon>
     </button>
-    <button [routerLink]="['/signup']" mat-icon-button matTooltip="Sign Up">
+    <button *ngIf="!isAuthenticated" [routerLink]="['/signup']" mat-icon-button matTooltip="Sign Up">
         <mat-icon>how_to_reg</mat-icon>
     </button>
-    <button [routerLink]="['/profile']" mat-icon-button matTooltip="Go to Profile">
+    <button *ngIf="isAuthenticated" [routerLink]="['/profile']" mat-icon-button matTooltip="Go to Profile">
         <mat-icon>person</mat-icon>
     </button>
-    <button [routerLink]="['/create']" mat-icon-button matTooltip="Add Item">
+    <button *ngIf="isAuthenticated" [routerLink]="['/create']" mat-icon-button matTooltip="Add Item">
         <mat-icon>add</mat-icon>
+    </button>
+    <button *ngIf="isAuthenticated" mat-icon-button (click)="logout()" matTooltip="Logout">
+        <mat-icon>logout</mat-icon>
     </button>
 
 </mat-toolbar>
