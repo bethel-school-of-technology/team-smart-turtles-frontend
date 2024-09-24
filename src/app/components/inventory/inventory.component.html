@@ -12,14 +12,17 @@
                     Placeholder for button to take user to profile of item-holder
                 </p>
             </mat-card-content>
-            
+
             <mat-card-actions>
                 <button [routerLink]='["/edit"]' mat-icon-button matTooltip="Edit Post">
                     <mat-icon>edit</mat-icon>
-                  </button>
-                  <button mat-icon-button matTooltip="Remove Item">
+                </button>
+                <button mat-icon-button matTooltip="Remove Item">
                     <mat-icon>delete</mat-icon>
-                  </button>
+                </button>
+                <button [routerLink]='["/checkout"]' mat-icon-button matTooltip="Chekout Item">
+                    <mat-icon>checkout</mat-icon>
+                </button>
             </mat-card-actions>
         </mat-card>
     </div>

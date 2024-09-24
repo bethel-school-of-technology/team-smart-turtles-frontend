@@ -19,6 +19,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditComponent } from './components/edit/edit.component';
     InventoryComponent,
     MaterialComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
