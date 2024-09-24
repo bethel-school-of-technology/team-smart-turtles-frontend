@@ -7,6 +7,7 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { MaterialComponent } from './components/material/material.component';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: "edit/:itemId",
     component: EditComponent
+  },
+  {
+    path: "checkout",
+    component: CheckoutComponent
   }
 ];
 
