@@ -1,13 +1,21 @@
 <form (ngSubmit)="signUp()">
     <h1>REGISTER</h1>
-    <span>Username  </span>
-    <input placeholder="Enter Username" type="text" name="username" [(ngModel)]="newUser.username"><br><br>
-    <span>Email </span>
-    <input placeholder="Enter Email" type="text" name="email" [(ngModel)]="newUser.email"><br><br>
-    <span>Password  </span>
-    <input placeholder="Enter Password" type="password" name="password" [(ngModel)]="newUser.password"><br><br>
+    <mat-form-field appearance="fill" class="forms">
+        <mat-label>Username </mat-label>
+        <input matInput placeholder="Create your username"  type="text" name="username" [(ngModel)]="newUser.username">
+    </mat-form-field>
 
-    <button>
+    <mat-form-field appearance="fill" class="forms">
+        <mat-label>Email </mat-label>
+        <input matInput placeholder="Enter your email"  type="email" name="email" [(ngModel)]="newUser.email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="forms">
+        <mat-label>Password </mat-label>
+        <input matInput placeholder="Create your password"  type="password" name="password" [(ngModel)]="newUser.password">
+    </mat-form-field>
+
+    <button mat-raised-button>
         Sign Up
     </button>
 </form>
