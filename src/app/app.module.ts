@@ -17,6 +17,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltip } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -42,7 +45,10 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltip
+    MatTooltip,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [
     provideAnimationsAsync()

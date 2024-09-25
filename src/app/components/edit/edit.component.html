@@ -1,10 +1,24 @@
 <h4>Edit Item</h4>
 <form #form="ngForm" (ngSubmit)="onSubmit()">
-    <label>Item: </label>
-    <input type="text" name="name" [(ngModel)]="currentItem.name"><br><br>
+    <mat-form-field appearance="fill" class="forms">
+        <mat-label>Item name: </mat-label>
+        <input matInput placeholder="Edit name"  type="text" name="name" [(ngModel)]="currentItem.name">
+    </mat-form-field>
 
-    <label>Item Type: </label>
-    <input type="text" name="catagory" [(ngModel)]="currentItem.catagory"><br><br>
+    <mat-form-field class="forms">
+        <mat-label>Item type: </mat-label>
+        <mat-select type="text" name="catagory" [(ngModel)]="currentItem.catagory">
+            <mat-option value="Hand Tool">Hand Tool</mat-option>
+            <mat-option value="Powered Hand Tool">Powered Hand Tool</mat-option>
+            <mat-option value="Heavy Duty">Heavy Duty</mat-option>
+            <mat-option value="Vehicle">Vehicle</mat-option>
+        </mat-select>
+    </mat-form-field>
 
-    <button type="submit">Confirm Changes</button>
+    <mat-form-field class="forms">
+        <mat-label>Item image: </mat-label>
+        <input matInput placeholder="Update image link" type="text" name="image" [(ngModel)]="currentItem.itemImg">
+    </mat-form-field>
+
+    <button mat-raised-button type="submit">Confirm Changes</button>
 </form>

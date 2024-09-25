@@ -3,8 +3,8 @@ import { Inventory } from '../../models/inventory';
 import { InventoryService } from '../../services/inventory.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-// import { User } from '../../models/user';
-// import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -14,23 +14,27 @@ import { isPlatformBrowser } from '@angular/common';
 export class ProfileComponent implements OnInit {
 
   toolList: Inventory[] = [];
-  // userId: number = 0;
-  // currentUser: User = new User();
   username: string = '';
   email: string = '';
+  isAuthenticated = false;
+  private authSubscription!: Subscription;
 
   constructor(
     private InventoryService: InventoryService, 
     private router: Router, 
-    private route: ActivatedRoute, 
-    // private userService: UserService,
+    private route: ActivatedRoute,
+    private UserService: UserService,
     @Inject(PLATFORM_ID) private platformId: Object) {}
 
     ngOnInit(): void {
       if (isPlatformBrowser(this.platformId)) {
         this.username = localStorage.getItem('username') || '';
-        this.email = localStorage.getItem('email') || '';  // Assuming email is stored similarly
+        this.email = localStorage.getItem('email') || '';
   
+        this.authSubscription = this.UserService.getAuthState().subscribe(isAuthenticated => {
+          this.isAuthenticated = isAuthenticated;
+        });
+
         this.loadInventory();
       }
     }
@@ -48,36 +52,15 @@ export class ProfileComponent implements OnInit {
         }
       );
     }
+
+    onDelete(itemId: number) {
+      this.InventoryService.deleteItem(itemId).subscribe (
+        () => {
+          this.loadInventory();
+        }, error => {
+          console.log('Error: ', error);
+          this.router.navigateByUrl('/');
+        }
+      )
+    }
   }
-  
-  // this.userService.getUserProfile().subscribe(
-  //   (user: User) => {
-  //     this.currentUser = user;
-  //     this.loadUserItems();
-  //     },
-  //     (error: any) => {
-  //       console.error('Error fetching user profile:', error);
-  //       this.router.navigate(['/login']);  
-  //     }
-  //   );
-
-  // loadUserItems(): void {
-  //   if (this.currentUser.userId !== undefined) {
-  //     this.InventoryService.getCheckedOutItems(this.currentUser.userId).subscribe(
-  //       (items: Inventory[]) => {
-  //         this.itemList = items;
-  //       },
-  //       (error) => {
-  //         console.error('Error loading user posts:', error);
-  //       }
-  //     );
-  //   } else {
-  //     console.error('User ID is undefined, cannot load user items.');
-  //   }
-  // }
-
-  // goToUserProfile(userId: number): void {
-  //   this.router.navigate(['/profile', userId])
-  // }
-
-// }
