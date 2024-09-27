@@ -2,15 +2,14 @@
 
 <div *ngIf="inventory">
     <div *ngFor="let item of inventory">
-        <mat-card>
+        <mat-card class="example-card">
             <mat-card-header>
                 <mat-card-title>{{ item.name }}</mat-card-title>
+                <mat-card-subtitle>{{ item.catagory }}</mat-card-subtitle>
             </mat-card-header>
 
             <mat-card-content>
-                <p>
-                    {{ item.catagory }}
-                </p>
+                <img [src]="item.itemImg" alt="{{ item.name }} image">
             </mat-card-content>
 
             <mat-card-actions>
