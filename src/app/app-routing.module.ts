@@ -40,7 +40,7 @@ const routes: Routes = [
     component: EditComponent
   },
   {
-    path: "checkout",
+    path: "checkout/:itemId",
     component: CheckoutComponent
   }
 ];

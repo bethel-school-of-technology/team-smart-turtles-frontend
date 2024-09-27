@@ -20,6 +20,9 @@
                 <button *ngIf="isAuthenticated" (click)="onDelete(item.itemId!)" mat-icon-button matTooltip="Remove Item">
                     <mat-icon>delete</mat-icon>
                 </button>
+                <button *ngIf="isAuthenticated" [routerLink]='["/checkout/", item.itemId]' mat-icon-button matTooltip="Checkout">
+                    <mat-icon>add_circle</mat-icon>
+                </button>
             </mat-card-actions>
         </mat-card>
     </div>
