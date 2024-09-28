@@ -17,6 +17,7 @@ export class InventoryComponent implements OnInit {
   isAuthenticated = false;
   private authSubscription!: Subscription;
   currentUser: User | null = null;
+  availability: string = 'yes';
 
   constructor (
     private router: Router, 
@@ -73,5 +74,30 @@ export class InventoryComponent implements OnInit {
     }, error => {
       console.log('Error during return:', error);
     });
+  }
+
+  toggleAvailability(itemId: number | undefined): void {
+    if (!itemId || isNaN(Number(itemId))) {
+      console.warn('Invalid item ID');
+      return;
+    }
+    const itemIndex = this.inventory.findIndex(i => i.itemId === itemId);
+    
+    if (itemIndex !== -1) {
+      this.inventory[itemIndex].available = !this.inventory[itemIndex].available;
+      
+      this.inventoryService.editItem(itemId, this.inventory[itemIndex])
+        .subscribe(
+          () => {
+            console.log(`Updated availability for item ${itemId}`);
+            this.loadItems();
+          },
+          error => {
+            console.error('Failed to update item status:', error);
+          }
+        );
+    } else {
+      console.warn(`Item with ID ${itemId} not found`);
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { InventoryService } from '../../services/inventory.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -14,6 +14,8 @@ export class CheckoutComponent {
  
   currentUser: User | null = null;
   currentItem: Inventory = new Inventory();
+
+  inventory: Inventory[] = [];
   
   id: number = 0;
 
@@ -28,8 +30,5 @@ export class CheckoutComponent {
       this.currentItem = foundItem;
     })
   }
-
-  
-
-  
+ 
 }

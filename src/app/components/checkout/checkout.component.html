@@ -1,17 +1,13 @@
 <h2>Check Out Item</h2>
-<div>
+<div ngIf>
     <mat-card>
         <mat-card-header>
             <mat-card-title>{{ currentItem.name }}</mat-card-title>
+            <mat-card-subtitle>{{ currentItem.catagory }}</mat-card-subtitle>
         </mat-card-header>
 
         <mat-card-content>
-            <p>
-                {{ currentItem.catagory }}
-            </p>
-            <p>
-                {{currentItem}}
-            </p>
+            <img [src]="currentItem.itemImg" alt="{{ currentItem.name }} image">
         </mat-card-content>
 
         <mat-card-actions>
