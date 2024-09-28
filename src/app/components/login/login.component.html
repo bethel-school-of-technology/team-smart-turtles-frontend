@@ -1,16 +1,18 @@
-<form (ngSubmit)="logIn()">
-    <h1>LOGIN</h1>
-    <mat-form-field appearance="fill" class="forms">
-        <mat-label>Username </mat-label>
-        <input matInput placeholder="Enter your username"  type="text" name="name" [(ngModel)]="username">
-    </mat-form-field>
+<div class="container">
+    <form (ngSubmit)="logIn()">
+        <h1>Login</h1>
+        <mat-form-field appearance="fill" class="forms">
+            <mat-label>Username </mat-label>
+            <input matInput placeholder="Enter your username" type="text" name="name" [(ngModel)]="username">
+        </mat-form-field>
 
-    <mat-form-field appearance="fill" class="forms">
-        <mat-label>Password </mat-label>
-        <input matInput placeholder="Enter your password"  type="password" name="password" [(ngModel)]="password">
-    </mat-form-field>
+        <mat-form-field appearance="fill" class="forms">
+            <mat-label>Password </mat-label>
+            <input matInput placeholder="Enter your password" type="password" name="password" [(ngModel)]="password">
+        </mat-form-field>
 
-    <button mat-raised-button>
-        Login
-    </button>
-</form>
+        <button mat-raised-button>
+            Login
+        </button>
+    </form>
+</div>

@@ -3,7 +3,22 @@
 }
 
 mat-toolbar {
-    background-color: #5DA9E9;
+    background-color: #0B3954;
+    color: #ffffff;
+    border-bottom: 4px solid #C1292E;
 }
 
-/* Colors - #C1292E - #5DA9E9 - #FFFFFF - #2B2C28 - #2708A0 */
+.title {
+    font-family: "Orbitron", sans-serif;
+    font-size: larger;
+}
+
+.title-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }

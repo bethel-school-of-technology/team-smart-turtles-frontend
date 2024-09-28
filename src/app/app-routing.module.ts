@@ -6,13 +6,17 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/login",
+    redirectTo: "/homepage",
     pathMatch: "full"
+  },
+  {
+    path: "homepage",
+    component: HomepageComponent
   },
   {
     path: "login",
@@ -37,10 +41,6 @@ const routes: Routes = [
   {
     path: "edit/:itemId",
     component: EditComponent
-  },
-  {
-    path: "checkout/:itemId",
-    component: CheckoutComponent
   }
 ];
 

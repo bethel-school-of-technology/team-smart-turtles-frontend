@@ -1,24 +1,26 @@
-<h4>Edit Item</h4>
-<form #form="ngForm" (ngSubmit)="onSubmit()">
-    <mat-form-field appearance="fill" class="forms">
-        <mat-label>Item name: </mat-label>
-        <input matInput placeholder="Edit name"  type="text" name="name" [(ngModel)]="currentItem.name">
-    </mat-form-field>
+<div class="container">
+    <h1>Edit Item</h1>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="forms">
+            <mat-label>Item name: </mat-label>
+            <input matInput placeholder="Edit name" type="text" name="name" [(ngModel)]="currentItem.name">
+        </mat-form-field>
 
-    <mat-form-field class="forms">
-        <mat-label>Item type: </mat-label>
-        <mat-select type="text" name="catagory" [(ngModel)]="currentItem.catagory">
-            <mat-option value="Hand Tool">Hand Tool</mat-option>
-            <mat-option value="Powered Hand Tool">Powered Hand Tool</mat-option>
-            <mat-option value="Heavy Duty">Heavy Duty</mat-option>
-            <mat-option value="Vehicle">Vehicle</mat-option>
-        </mat-select>
-    </mat-form-field>
+        <mat-form-field class="forms">
+            <mat-label>Item type: </mat-label>
+            <mat-select type="text" name="catagory" [(ngModel)]="currentItem.catagory">
+                <mat-option value="Hand Tool">Hand Tool</mat-option>
+                <mat-option value="Powered Hand Tool">Powered Hand Tool</mat-option>
+                <mat-option value="Heavy Duty">Heavy Duty</mat-option>
+                <mat-option value="Vehicle">Vehicle</mat-option>
+            </mat-select>
+        </mat-form-field>
 
-    <mat-form-field class="forms">
-        <mat-label>Item image: </mat-label>
-        <input matInput placeholder="Update image link" type="text" name="image" [(ngModel)]="currentItem.itemImg">
-    </mat-form-field>
+        <mat-form-field class="forms">
+            <mat-label>Item image: </mat-label>
+            <input matInput placeholder="Update image link" type="text" name="image" [(ngModel)]="currentItem.itemImg">
+        </mat-form-field>
 
-    <button mat-raised-button type="submit">Confirm Changes</button>
-</form>
+        <button mat-raised-button type="submit">Confirm Changes</button>
+    </form>
+</div>

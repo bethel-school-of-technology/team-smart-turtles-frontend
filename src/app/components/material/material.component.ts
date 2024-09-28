@@ -34,7 +34,7 @@ export class MaterialComponent {
 
   logout(): void {
     this.userService.logout();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/homepage');
     window.alert('You have successfully logged out');
   }
 

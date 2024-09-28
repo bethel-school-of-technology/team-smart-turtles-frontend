@@ -22,7 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     MaterialComponent,
     CreateComponent,
     EditComponent,
-    CheckoutComponent
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

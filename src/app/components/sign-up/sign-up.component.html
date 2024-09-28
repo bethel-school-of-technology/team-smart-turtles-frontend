@@ -1,21 +1,23 @@
-<form (ngSubmit)="signUp()">
-    <h1>REGISTER</h1>
-    <mat-form-field appearance="fill" class="forms">
-        <mat-label>Username </mat-label>
-        <input matInput placeholder="Create your username"  type="text" name="username" [(ngModel)]="newUser.username">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="forms">
-        <mat-label>Email </mat-label>
-        <input matInput placeholder="Enter your email"  type="email" name="email" [(ngModel)]="newUser.email">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="forms">
-        <mat-label>Password </mat-label>
-        <input matInput placeholder="Create your password"  type="password" name="password" [(ngModel)]="newUser.password">
-    </mat-form-field>
-
-    <button mat-raised-button>
-        Sign Up
-    </button>
-</form>
+<div class="container">
+    <form (ngSubmit)="signUp()">
+        <h1>Register</h1>
+        <mat-form-field appearance="fill" class="forms">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Create your username" type="text" name="username" [(ngModel)]="newUser.username">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="forms">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Enter your email" type="email" name="email" [(ngModel)]="newUser.email">
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="forms">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Create your password" type="password" name="password" [(ngModel)]="newUser.password">
+        </mat-form-field>
+  
+        <button mat-raised-button>
+            Sign Up
+        </button>
+    </form>
+  </div>
