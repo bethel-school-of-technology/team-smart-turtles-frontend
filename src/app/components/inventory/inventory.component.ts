@@ -17,6 +17,7 @@ export class InventoryComponent implements OnInit {
   isAuthenticated = false;
   private authSubscription!: Subscription;
   currentUser: User | null = null;
+  availability: string = '';
 
   constructor (
     private router: Router, 
@@ -57,21 +58,28 @@ export class InventoryComponent implements OnInit {
     });
   }
 
-  checkOutItem(itemId: number): void {
-    if (this.currentUser && this.currentUser.userId) {
-      this.inventoryService.checkOutItem(itemId, this.currentUser.userId).subscribe(() => {
-        this.loadItems();
-      }, error => {
-        console.log('Error during checkout:', error);
-      });
+  toggleAvailability(itemId: number | undefined): void {
+    if (!itemId || isNaN(Number(itemId))) {
+      console.warn('Invalid item ID');
+      return;
     }
-  }
-
-  returnItem(itemId: number): void {
-    this.inventoryService.returnItem(itemId).subscribe(() => {
-      this.loadItems();
-    }, error => {
-      console.log('Error during return:', error);
-    });
+    const itemIndex = this.inventory.findIndex(i => i.itemId === itemId);
+    
+    if (itemIndex !== -1) {
+      this.inventory[itemIndex].available = !this.inventory[itemIndex].available;
+      
+      this.inventoryService.editItem(itemId, this.inventory[itemIndex])
+        .subscribe(
+          () => {
+            console.log(`Updated availability for item ${itemId}`);
+            this.loadItems();
+          },
+          error => {
+            console.error('Failed to update item status:', error);
+          }
+        );
+    } else {
+      console.warn(`Item with ID ${itemId} not found`);
+    }
   }
 }

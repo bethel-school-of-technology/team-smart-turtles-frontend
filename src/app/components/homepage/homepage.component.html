@@ -1,0 +1,9 @@
+<div class="container">
+    <h1 class="title">Inventura</h1>
+    <p class="subtitle">Inventory in Order, Simplicity in Mind.</p>
+    <div class="links">
+        <p *ngIf="!isAuthenticated">Returning user? Login <a [routerLink]="['/login']">here</a></p>
+        <p *ngIf="!isAuthenticated">Looking for a new inventory solution?<br>Create your profile <a [routerLink]="['/signup']">here!</a></p>
+        <p *ngIf="isAuthenticated">Thank you for being one of our loyal customers!</p>
+    </div>
+</div>

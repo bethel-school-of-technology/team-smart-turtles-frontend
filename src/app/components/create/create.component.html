@@ -1,27 +1,29 @@
-<form (ngSubmit)="createItem()">
-    <h4>Create New Item</h4>
-
-    <mat-form-field appearance="fill" class="forms">
-        <mat-label>Item name: </mat-label>
-        <input matInput placeholder="Add new item" type="text" name="create" [(ngModel)]="newItem.name">
-    </mat-form-field>
-
-    <mat-form-field class="forms">
-        <mat-label>Item type: </mat-label>
-        <mat-select placeholder="Select a category" name="catagory" [(ngModel)]="newItem.catagory">
-            <mat-option value="Hand Tool">Hand Tool</mat-option>
-            <mat-option value="Powered Hand Tool">Powered Hand Tool</mat-option>
-            <mat-option value="Heavy Duty">Heavy Duty</mat-option>
-            <mat-option value="Vehicle">Vehicle</mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <mat-form-field class="forms">
-        <mat-label>Item image: </mat-label>
-        <input matInput placeholder="Add image link" type="text" name="image" [(ngModel)]="newItem.itemImg">
-    </mat-form-field>
-
-    <button mat-raised-button>
-        Add to inventory!
-    </button>
-</form>
+<div class="container">
+    <form (ngSubmit)="createItem()">
+        <h1>Create New Item</h1>
+  
+        <mat-form-field appearance="fill" class="forms">
+            <mat-label>Item name:</mat-label>
+            <input matInput placeholder="Add new item" type="text" name="create" [(ngModel)]="newItem.name">
+        </mat-form-field>
+  
+        <mat-form-field class="forms">
+            <mat-label>Item type:</mat-label>
+            <mat-select placeholder="Select a catagory" name="catagory" [(ngModel)]="newItem.catagory">
+                <mat-option value="Hand Tool">Hand Tool</mat-option>
+                <mat-option value="Powered Hand Tool">Powered Hand Tool</mat-option>
+                <mat-option value="Heavy Duty">Heavy Duty</mat-option>
+                <mat-option value="Vehicle">Vehicle</mat-option>
+            </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="forms">
+            <mat-label>Item image:</mat-label>
+            <input matInput placeholder="Add image link" type="text" name="image" [(ngModel)]="newItem.itemImg">
+        </mat-form-field>
+  
+        <button mat-raised-button>
+            Add to inventory!
+        </button>
+    </form>
+  </div>

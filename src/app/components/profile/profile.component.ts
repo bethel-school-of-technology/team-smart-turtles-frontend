@@ -20,47 +20,47 @@ export class ProfileComponent implements OnInit {
   private authSubscription!: Subscription;
 
   constructor(
-    private InventoryService: InventoryService, 
-    private router: Router, 
+    private InventoryService: InventoryService,
+    private router: Router,
     private route: ActivatedRoute,
     private UserService: UserService,
-    @Inject(PLATFORM_ID) private platformId: Object) {}
+    @Inject(PLATFORM_ID) private platformId: Object) { }
 
-    ngOnInit(): void {
-      if (isPlatformBrowser(this.platformId)) {
-        this.username = localStorage.getItem('username') || '';
-        this.email = localStorage.getItem('email') || '';
-  
-        this.authSubscription = this.UserService.getAuthState().subscribe(isAuthenticated => {
-          this.isAuthenticated = isAuthenticated;
-        });
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.username = localStorage.getItem('username') || '';
+      this.email = localStorage.getItem('email') || '';
 
-        this.loadInventory();
-      }
-    }
-  
-    loadInventory(): void {
-      this.InventoryService.getAllItems().subscribe(
-        (items: Inventory[]) => {
-          this.toolList = items;
-        },
-        (error: any) => {
-          console.error('Failed to load items:', error);
-          if (error.status === 404) {
-            console.error('Endpoint not found');
-          }
-        }
-      );
-    }
+      this.authSubscription = this.UserService.getAuthState().subscribe(isAuthenticated => {
+        this.isAuthenticated = isAuthenticated;
+      });
 
-    onDelete(itemId: number) {
-      this.InventoryService.deleteItem(itemId).subscribe (
-        () => {
-          this.loadInventory();
-        }, error => {
-          console.log('Error: ', error);
-          this.router.navigateByUrl('/');
-        }
-      )
+      this.loadInventory();
     }
   }
+
+  loadInventory(): void {
+    this.InventoryService.getAllItems().subscribe(
+      (items: Inventory[]) => {
+        this.toolList = items;
+      },
+      (error: any) => {
+        console.error('Failed to load items:', error);
+        if (error.status === 404) {
+          console.error('Endpoint not found');
+        }
+      }
+    );
+  }
+
+  onDelete(itemId: number) {
+    this.InventoryService.deleteItem(itemId).subscribe(
+      () => {
+        this.loadInventory();
+      }, error => {
+        console.log('Error: ', error);
+        this.router.navigateByUrl('/');
+      }
+    )
+  }
+}

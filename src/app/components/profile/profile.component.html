@@ -7,10 +7,10 @@
   <p>No User Logged In</p>
 </ng-template>
 
-<div *ngIf="toolList.length > 0">
-  <div *ngFor="let tool of toolList">
+<div *ngIf="toolList.length > 0" class="grid">
+  <div *ngFor="let tool of toolList" class="container">
     <mat-card>
-      <mat-card-header>
+      <mat-card-header class="centered">
         <mat-card-title>{{ tool.name }}</mat-card-title>
         <mat-card-subtitle>{{ tool.catagory }}</mat-card-subtitle>
     </mat-card-header>
@@ -25,9 +25,6 @@
           </button>
           <button *ngIf="isAuthenticated" (click)="onDelete(tool.itemId!)" mat-icon-button matTooltip="Remove Item">
               <mat-icon>delete</mat-icon>
-          </button>
-          <button *ngIf="isAuthenticated" [routerLink]='["/checkout/", tool.itemId]' mat-icon-button matTooltip="Checkout">
-              <mat-icon>add_circle</mat-icon>
           </button>
       </mat-card-actions>
     </mat-card>

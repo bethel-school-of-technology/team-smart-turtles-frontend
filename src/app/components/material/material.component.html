@@ -1,11 +1,13 @@
 <mat-toolbar>
-    <span>Inventura</span>
+    <button class="title-button" [routerLink]="['/homepage']">
+        <span class="title">Inventura</span>
+    </button>
     <span class="spacer"></span>
 
     <button *ngIf="!isAuthenticated" [routerLink]="['/login']" mat-icon-button matTooltip="Login">
         <mat-icon>login</mat-icon>
     </button>
-    <button [routerLink]="['/inventory']" mat-icon-button matTooltip="Inventory">
+    <button *ngIf="isAuthenticated" [routerLink]="['/inventory']" mat-icon-button matTooltip="Inventory">
         <mat-icon>inventory</mat-icon>
     </button>
     <button *ngIf="!isAuthenticated" [routerLink]="['/signup']" mat-icon-button matTooltip="Sign Up">

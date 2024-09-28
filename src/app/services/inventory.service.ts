@@ -36,18 +36,6 @@ export class InventoryService {
     return this.http.put(`${this.baseURL}/update/${editedItem.itemId}`, editedItem, { headers });
   }
 
-  getCheckedOutItems(userId: number): Observable<Inventory[]> {
-    return this.http.get<Inventory[]>(`${this.baseURL}/user/${userId}`);
-  }
-
-  checkOutItem(itemId: number, userId: number): Observable<any> {
-    return this.http.put(`${this.baseURL}/${itemId}/checkout`, { userId });
-  }
-
-  returnItem(itemId: number): Observable<any> {
-    return this.http.put(`${this.baseURL}/${itemId}/return`, {});
-  }
-
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem(this.tokenKey);
     if (token) {
