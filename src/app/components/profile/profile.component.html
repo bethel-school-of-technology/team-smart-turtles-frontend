@@ -1,13 +1,8 @@
-<h1>User Profile</h1>
-<div *ngIf="username; else noUser">
-  <h2>{{ username }}</h2>
-  <h2>{{ email }}</h2>
-</div>
-<ng-template #noUser>
-  <p>No User Logged In</p>
-</ng-template>
+<h1>Profile</h1>
+<h2><b>Username: </b>{{ currentUser.username }}</h2>
+<h2><b>Email: </b>{{ currentUser.email }}</h2>
 
-<div *ngIf="toolList.length > 0">
+<!-- <div *ngIf="toolList.length > 0">
   <div *ngFor="let tool of toolList">
     <mat-card>
       <mat-card-header>
@@ -32,4 +27,4 @@
       </mat-card-actions>
     </mat-card>
   </div>
-</div>
+</div> -->

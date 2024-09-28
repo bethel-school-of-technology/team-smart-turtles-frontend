@@ -37,8 +37,8 @@ export class InventoryService {
   }
 
   getCheckedOutItems(userId: number): Observable<Inventory[]> {
-    return this.http.get<Inventory[]>(`${this.baseURL}/user/${userId}`);
-  }
+    return this.http.get<Inventory[]>(`http://localhost:3000/api/user/${userId}`);
+  }  
 
   checkOutItem(itemId: number, userId: number): Observable<any> {
     return this.http.put(`${this.baseURL}/${itemId}/checkout`, { userId });
