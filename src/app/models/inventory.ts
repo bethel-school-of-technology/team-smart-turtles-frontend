@@ -7,8 +7,8 @@ export class Inventory {
     updatedAt?: Date;
     available?: boolean;
     catagory?: string;
-    checkedOutBy?: User | null; // User who checked it out, null if available
-    isCheckedOut?: boolean;     // Tracks if the item is checked out
+    checkedOutBy?: User | null;
+    isCheckedOut?: boolean;
     itemImg?: string;
 
     constructor(itemId?: number, name?: string, createdAt?: Date, updatedAt?: Date, available?: boolean, catagory?: string, itemImg?: string) {

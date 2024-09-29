@@ -19,7 +19,7 @@ body {
     background-attachment: fixed;
   }
   
-  body::before {
+body::before {
     content: '';
     position: fixed;
     top: 10vh;
@@ -34,6 +34,4 @@ body {
     opacity: 0.3;
     z-index: -1;
     pointer-events: none;
-  }
-
-/* F4EBD9 F9EAE1 EDE3E4 FFFCF9 D3FFF3 FBF9FF F8F0FB */
+}

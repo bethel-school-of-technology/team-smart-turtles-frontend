@@ -1,4 +1,8 @@
-<h1>Current Inventory</h1>
+<div class="parent-container">
+    <div class="header">
+      <h1>Current Inventory</h1>
+    </div>
+  </div>
 
 <div *ngIf="inventory" class="grid">
     <div *ngFor="let item of inventory" class="container">
@@ -14,13 +18,16 @@
             </mat-card-content>
 
             <mat-card-actions>
-                <button *ngIf="isAuthenticated" [routerLink]='["/edit/", item.itemId]' mat-icon-button matTooltip="Edit Post">
+                <button *ngIf="isAuthenticated" [routerLink]='["/edit/", item.itemId]' mat-icon-button
+                    matTooltip="Edit Post">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <button *ngIf="isAuthenticated" (click)="onDelete(item.itemId!)" mat-icon-button matTooltip="Remove Item">
+                <button *ngIf="isAuthenticated" (click)="onDelete(item.itemId!)" mat-icon-button
+                    matTooltip="Remove Item">
                     <mat-icon>delete</mat-icon>
                 </button>
-                <button *ngIf="isAuthenticated" (click)="toggleAvailability(item.itemId)" mat-icon-button matTooltip="Checkout">
+                <button *ngIf="isAuthenticated" (click)="toggleAvailability(item.itemId)" mat-icon-button
+                    matTooltip="Checkout">
                     <mat-icon>add_circle</mat-icon>
                 </button>
             </mat-card-actions>

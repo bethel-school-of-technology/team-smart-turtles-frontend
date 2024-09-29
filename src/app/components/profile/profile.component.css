@@ -1,3 +1,23 @@
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 20px 0;
+  
+}
+
+.profile-header {
+  width: 250px;
+  height: 165px;
+  background-color: rgba(93, 169, 233, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border: 1px solid #555B6E;
+  text-align: center;
+}
+
 mat-card {
     width: 100%;
     margin: 0;
@@ -6,7 +26,7 @@ mat-card {
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: radial-gradient(circle, #F4EBD9 1%, #5DA9E9 300%);
-  }
+}
 
 mat-card img {
     width: 100%;
@@ -26,9 +46,9 @@ mat-card img {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
-  }
+}
 
   .container {
     display: flex;
     justify-content: center;
-  }
+}

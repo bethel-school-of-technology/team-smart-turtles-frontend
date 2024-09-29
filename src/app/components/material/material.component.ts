@@ -21,13 +21,13 @@ export class MaterialComponent {
       this.isAuthenticated = isAuthenticated;
       
       if (isAuthenticated) {
-        this.userService.getUserProfile().subscribe((currentUser: any) => { // Subscribing to get the user profile
+        this.userService.getUserProfile().subscribe((currentUser: any) => {
           if (currentUser) {
-            this.currentUserId = currentUser.userId; // Access userId safely
+            this.currentUserId = currentUser.userId;
           }
         });
       } else {
-        this.currentUserId = null; // No user when not authenticated
+        this.currentUserId = null;
       }
     });
   }

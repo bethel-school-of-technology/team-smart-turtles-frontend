@@ -1,11 +1,10 @@
-<h1>User Profile</h1>
-<div *ngIf="username; else noUser">
-  <h2>{{ username }}</h2>
-  <h2>{{ email }}</h2>
+<div class="parent-container">
+  <div class="profile-header">
+    <h1>Profile</h1>
+    <h2><b>Username: </b>{{ currentUser.username }}</h2>
+    <h2><b>Email: </b>{{ currentUser.email }}</h2>
+  </div>
 </div>
-<ng-template #noUser>
-  <p>No User Logged In</p>
-</ng-template>
 
 <div *ngIf="toolList.length > 0" class="grid">
   <div *ngFor="let tool of toolList" class="container">
@@ -13,19 +12,19 @@
       <mat-card-header class="centered">
         <mat-card-title>{{ tool.name }}</mat-card-title>
         <mat-card-subtitle>{{ tool.catagory }}</mat-card-subtitle>
-    </mat-card-header>
+      </mat-card-header>
 
-    <mat-card-content>
+      <mat-card-content>
         <img [src]="tool.itemImg" alt="{{ tool.name }} image">
-    </mat-card-content>
-    
+      </mat-card-content>
+
       <mat-card-actions>
-          <button *ngIf="isAuthenticated" [routerLink]='["/edit/", tool.itemId]' mat-icon-button matTooltip="Edit Post">
-              <mat-icon>edit</mat-icon>
-          </button>
-          <button *ngIf="isAuthenticated" (click)="onDelete(tool.itemId!)" mat-icon-button matTooltip="Remove Item">
-              <mat-icon>delete</mat-icon>
-          </button>
+        <button *ngIf="isAuthenticated" [routerLink]='["/edit/", tool.itemId]' mat-icon-button matTooltip="Edit Post">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button *ngIf="isAuthenticated" (click)="onDelete(tool.itemId!)" mat-icon-button matTooltip="Remove Item">
+          <mat-icon>delete</mat-icon>
+        </button>
       </mat-card-actions>
     </mat-card>
   </div>
