@@ -32,3 +32,22 @@ mat-card img {
   justify-content: center;
   text-align: center;
 }
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  padding: 10px 0;
+}
+
+.header {
+  width: 185px;
+  height: 30px;
+  background-color: rgba(93, 169, 233, 0.7);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border: 1px solid #555B6E;
+  text-align: center;
+}

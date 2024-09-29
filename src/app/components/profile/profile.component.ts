@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   email: string = '';
   isAuthenticated = false;
   private authSubscription!: Subscription;
+  currentUser: User = new User();
 
   constructor(
     private InventoryService: InventoryService,
@@ -35,6 +37,16 @@ export class ProfileComponent implements OnInit {
         this.isAuthenticated = isAuthenticated;
       });
 
+      this.UserService.getUserProfile().subscribe(
+        (user: User) => {
+          this.currentUser = user;
+          },
+          (error: any) => {
+            console.error('Error fetching user profile:', error);
+            this.router.navigate(['/login']);
+          }
+        );
+
       this.loadInventory();
     }
   }
@@ -42,7 +54,7 @@ export class ProfileComponent implements OnInit {
   loadInventory(): void {
     this.InventoryService.getAllItems().subscribe(
       (items: Inventory[]) => {
-        this.toolList = items;
+        this.toolList = items.filter(item => item.checkedOutBy?.userId === this.currentUser?.userId);
       },
       (error: any) => {
         console.error('Failed to load items:', error);
