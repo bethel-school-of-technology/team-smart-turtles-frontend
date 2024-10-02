@@ -54,7 +54,7 @@ export class ProfileComponent implements OnInit {
   loadInventory(): void {
     this.InventoryService.getAllItems().subscribe(
       (items: Inventory[]) => {
-        this.toolList = items.filter(item => item.checkedOutBy?.userId === this.currentUser?.userId);
+        this.toolList = items.filter(item => item.checkedOutBy === this.currentUser?.userId);
       },
       (error: any) => {
         console.error('Failed to load items:', error);

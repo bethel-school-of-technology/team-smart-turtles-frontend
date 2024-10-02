@@ -7,9 +7,11 @@ export class Inventory {
     updatedAt?: Date;
     available?: boolean;
     catagory?: string;
-    checkedOutBy?: User | null;
+    checkedOutBy?: number | null;
     isCheckedOut?: boolean;
     itemImg?: string;
+    User?: User;
+    CheckedOutUser?: User;
 
     constructor(itemId?: number, name?: string, createdAt?: Date, updatedAt?: Date, available?: boolean, catagory?: string, itemImg?: string) {
         this.itemId = itemId;

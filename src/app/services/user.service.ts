@@ -37,7 +37,7 @@ export class UserService {
 
   getUserProfile() {
     const token = localStorage.getItem('signUserToken');
-    return this.http.get(`${this.baseUrl}/profile`, {
+    return this.http.get(`${this.baseUrl}/currentUser`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
