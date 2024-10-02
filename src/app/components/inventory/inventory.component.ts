@@ -68,6 +68,13 @@ export class InventoryComponent implements OnInit {
     if (itemIndex !== -1) {
       this.inventory[itemIndex].available = !this.inventory[itemIndex].available;
       
+      console.log(this.currentUser);
+      if (this.inventory[itemIndex].available) {
+        this.inventory[itemIndex].checkedOutBy = null;
+      } else {
+        this.inventory[itemIndex].checkedOutBy = this.currentUser?.userId;
+      }
+      
       this.inventoryService.editItem(itemId, this.inventory[itemIndex])
         .subscribe(
           () => {

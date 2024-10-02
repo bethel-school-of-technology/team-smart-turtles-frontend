@@ -10,6 +10,7 @@
             <mat-card-header class="centered">
                 <mat-card-title>{{ item.name }}</mat-card-title>
                 <mat-card-subtitle>{{ item.catagory }}</mat-card-subtitle>
+                <mat-card-subtitle *ngIf="item.CheckedOutUser?.username">Used by: {{ item.CheckedOutUser?.username }}</mat-card-subtitle>
                 <mat-card-subtitle>Available: {{ item.available ? 'Yes' : 'No' }}</mat-card-subtitle>
             </mat-card-header>
 
@@ -26,9 +27,10 @@
                     matTooltip="Remove Item">
                     <mat-icon>delete</mat-icon>
                 </button>
-                <button *ngIf="isAuthenticated" (click)="toggleAvailability(item.itemId)" mat-icon-button
+                <button *ngIf="isAuthenticated && (item.available || currentUser?.userId === item.CheckedOutUser?.userId)" (click)="toggleAvailability(item.itemId)" mat-icon-button
                     matTooltip="Checkout">
-                    <mat-icon>add_circle</mat-icon>
+                    <mat-icon *ngIf="item.available">add_circle</mat-icon>
+                    <mat-icon *ngIf="!item.available">remove_circle</mat-icon>
                 </button>
             </mat-card-actions>
         </mat-card>
